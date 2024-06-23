@@ -1,2 +1,8 @@
 google-cloud-documentai==2.27.0
+google-cloud-aiplatform~=1.56.0
+langchain~=0.2.0
+langchain-google-genai
+langchain-google-vertexai
+pandas~=2.2.0
+pypdf~=4.2.0
 python-dotenv==1.0.1
