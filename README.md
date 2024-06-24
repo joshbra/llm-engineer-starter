@@ -4,7 +4,7 @@ https://www.loom.com/share/f72558a37adf4967b3128644457a13d6?sid=33916be5-361b-4d
 
 ### How to run
 
-I reccommend using a virtual environment to install and run the program. If you don't wish to, skip to step 4
+I reccommend using a virtual environment to install and run the program. If you don't wish to, skip to step 4:
 
 1. From the top level of the code (i.e. where this README is), create a virtual environment `python -m venv venv`
 2. Activate the virtual environment `./venv/bin/activate` (assumes POSIX shell)
@@ -27,6 +27,6 @@ I chose not to use the batch service because I wasn't sure the test account this
 5. The whole "pipeline" is just code and data being passed around which doesn't scale well and is not fault tolerant. Ideally a production pipeline would look more like:
 PDFs land in object store -> OCR and raw data is saved -> LLM -> structured data is saved. We'd use a job orchestrator to run the pipeline which would provide fault tolerance if a step fails, lineage for our data, and the ability to scale to demand.
 
-6. With regard to model selection and prompting, I didn't experiment much. Gemini was obviously a lot better than other options after some simeple testing so I went with that. Given more time, LLM selection and prompt selection would be experimented on more to ensure we have a good choice.
+6. With regard to model selection and prompting, I didn't experiment much. Gemini was obviously a lot better than other options after some simeple testing so I went with that. Given more time, LLM selection and prompt selection would be experimented on more to ensure we have a good selection for our problem case.
 
-7. Testing - all code should be unit tested, the GCP functions should be integration tested, and the LLM should be tested to ensure it's producing sensible outputs between code changes, ideally we could include an end to end test on sample data. 
+7. Testing - all code should be unit tested, the GCP functions should be integration tested, and the LLM should be evaluated to ensure it's producing sensible outputs between code changes, ideally we would include an end to end test on sample data. 
