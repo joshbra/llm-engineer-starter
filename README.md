@@ -7,6 +7,7 @@ I reccommend using a virtual environment to install and run the program. If you 
 3. Install dependencies `pip install -r requirements.txt`
 4. Run the submission file. The program takes the file location of a PDF to parse with the --path-to-case-pdf parameter. The output is quite verbose so I recommend piping it to an output file `python submission.py --path-to-case-pdf <file path> > ouput.txt`
 5. The program will split the PDF into single pages, write them back to the same directory, then perform OCR on them, then submit for analysis.
+6. If for whatever reason you cannot get it running, there is an example output in `example_output.txt`
 
 ### Things I would do differently/improvements:
 
