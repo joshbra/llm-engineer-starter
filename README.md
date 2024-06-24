@@ -1,3 +1,7 @@
+### Video demo link
+
+https://www.loom.com/share/f72558a37adf4967b3128644457a13d6?sid=33916be5-361b-4db5-bf69-a9332bc07fe7
+
 ### How to run
 
 I reccommend using a virtual environment to install and run the program. If you don't wish to, skip to step 4
