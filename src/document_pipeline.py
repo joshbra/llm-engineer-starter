@@ -31,7 +31,7 @@ def generate(input: str) -> MedicalRecord:
         input_variables=["query"],
         partial_variables={"format_instructions": parser.get_format_instructions()}
     )
-    llm = ChatVertexAI(model_name="gemini-1.5-flash-001", project=os.getenv("GCP_PROJECT_ID"), location="europe-west2", 
+    llm = ChatVertexAI(model_name="gemini-1.5-pro-001", project=os.getenv("GCP_PROJECT_ID"), location="europe-west2", 
                        max_tokes=2048, temperature=0.1, safety_settings=safety_settings
                     )
     chain = prompt | llm | parser
@@ -72,15 +72,13 @@ def extract_text_from_pdf(file_path: Path) -> pd.DataFrame:
         documents.append(document.text)
 
     # generate our medical record with all our pages as context
-    print("Generating MedicalRecord")
-    records.append(generate("".join(documents)))
+    records.append(generate("\n".join(documents)))
     
     # convert our documents into a DataFrame, sorted by date (year)
     df = pd.DataFrame()
     for record in records:
         df = pd.concat([df, pd.DataFrame.from_records(record.dict()["events"])])
-    df = df.sort_values(by="date", key=lambda s: s.str[-4:])
-    pd.set_option('display.max_colwidth', 60)
+    pd.set_option('display.max_colwidth', 40)
 
     return df
     
