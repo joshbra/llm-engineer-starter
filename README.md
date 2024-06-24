@@ -30,3 +30,5 @@ PDFs land in object store -> OCR and raw data is saved -> LLM -> structured data
 6. With regard to model selection and prompting, I didn't experiment much. Gemini was obviously a lot better than other options after some simeple testing so I went with that. Given more time, LLM selection and prompt selection would be experimented on more to ensure we have a good selection for our problem case.
 
 7. Testing - all code should be unit tested, the GCP functions should be integration tested, and the LLM should be evaluated to ensure it's producing sensible outputs between code changes, ideally we would include an end to end test on sample data. 
+
+8. More docstrings and documentation is always good to ensure clarity when sharing packages.
