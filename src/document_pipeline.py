@@ -72,13 +72,14 @@ def extract_text_from_pdf(file_path: Path) -> pd.DataFrame:
         documents.append(document.text)
 
     # generate our medical record with all our pages as context
+    print("Generating analysis...")
     records.append(generate("\n".join(documents)))
     
     # convert our documents into a DataFrame, sorted by date (year)
     df = pd.DataFrame()
     for record in records:
         df = pd.concat([df, pd.DataFrame.from_records(record.dict()["events"])])
-    pd.set_option('display.max_colwidth', 40)
+    pd.set_option('display.max_colwidth', 30)
 
     return df
     
